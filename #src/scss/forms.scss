@@ -1,0 +1,123 @@
+//<BUTTONS>============================================================================
+.btn {
+	display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  @include adaptiv-value("min-height", 48, 42, 0);
+	padding: 0px 51px;
+  font-weight: 600;
+  @include adaptiv-value("font-size", 15, 11, 0);
+  line-height: 18 / 15 * 100%;
+  font-variant: small-caps;
+  border: 1px solid transparent;
+  background: linear-gradient(260.2deg, #6FCCDD -101.8%, #F27AAA 19.84%, #9278B6 132.12%), #C4C4C4;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+		}
+	}
+  &:active{
+    transform: scale(0.9);
+  }
+  @media (max-width: $md4+px) {
+    padding: 0 25px;
+  }
+}
+
+//=====================================================================================
+@keyframes vibrate-1 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-10px, 10px);
+  }
+  100% {
+    transform: translate(-10px, -10px);
+  }
+  60% {
+    transform: translate(10px, 10px);
+  }
+  80% {
+    transform: translate(10px, -10px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes vibrate-3 {
+  0% {
+    transform: translate(0);
+  }
+  10% {
+    transform: translate(-2px, -2px);
+  }
+  20% {
+    transform: translate(2px, -2px);
+  }
+  30% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, 2px);
+  }
+  50% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, -2px);
+  }
+  70% {
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    transform: translate(-2px, -2px);
+  }
+  90% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.vibrate-1::before {
+	animation: vibrate-1 10s linear infinite both;
+}
+
+.vibrate-3 {
+	animation: vibrate-3 1s linear infinite both;
+}
+
+.slide-top {
+	animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.fade-in {
+	animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both 1s;
+}

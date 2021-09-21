@@ -1,0 +1,226 @@
+.header {
+  z-index: 10;
+  position: relative;
+  padding: 40px 0px 0px 0px;
+  background: url(../img/top-bg.svg) no-repeat bottom / cover;
+  @media (max-width: $md2+px) {
+    padding: 20px 0px 0px 0px;
+  }
+		// .header__container
+		&__container {
+      display: flex;
+      flex-direction: column;
+      @include adaptiv-value("max-width", 1140, 565, 0);
+		}
+		// .header__top
+		&__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 35px;
+      margin: 0px 0px 38px 0px;
+      @media (max-width: $md4+px) {
+        position: fixed;
+        width: 100%;
+        margin: 0px 0px 0px 0px;
+      }
+		}
+		// .header__logo
+		&__logo {
+      position: relative;
+      z-index: 5;
+      flex: 0 0 206 / 1100 * 100%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      @media (max-width: $md3+px) {
+        flex: 0 0 140px;
+      }
+		}
+		// .header__menu
+		&__menu {
+      flex: 0 0 529 / 1100 * 100%;
+		}
+		// .header__menu-icon
+		&__menu-icon {
+      margin: 0px 17px 0px 0px;
+		}
+		// .header__inner
+		&__inner {
+      position: relative;
+      @include adaptiv-value("max-width", 952, 476, 2);
+      @include adaptiv-value("padding-top", 86, 0, 0);
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        @include adaptiv-value("width", 647, 323.5, 0);
+        @include adaptiv-value("height", 587, 293.5, 0);
+        background: url(../img/balloon.png) no-repeat 0 0 / cover;
+        animation: vibrate-1 10s linear infinite both;
+        @media (max-width: $md4+px) {
+          position: relative;
+          animation: none;
+          // top: 70px;
+        }
+      }
+      @media (max-width: $md4+px) {
+        margin: 70px 0px 0px 0px;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      @media (max-width: $md3+px) {
+        z-index: -1;
+      }
+		}
+		// .header__content
+		&__content {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      @include adaptiv-value("max-width", 477, 238.5, 2);
+      color: $additionalColor;
+      @include adaptiv-value("margin-bottom", 90, 50, 0);
+      opacity: 0;
+		}
+		// .header__title
+		&__title {
+      @include adaptiv-value("font-size", 64, 32, 0);
+      line-height: 78 / 64 * 100%;
+      &:not(:last-child) {
+        margin: 0px 0px 15px/64px * 1em 0px;
+      }
+      span {
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+		}
+		// .header__sub-title
+		&__sub-title {
+      @include adaptiv-value("font-size", 24, 16, 0);
+      line-height: 29 / 24 * 100%;
+		}
+    // .header__btn
+		&__btn {
+      position: absolute;
+      top: calc(100% + 71px);
+      @media (max-width: $md3+px) {
+        top: calc(100% + 35px);
+      }
+    }
+}
+
+.menu {
+		// .menu__body
+		&__body {
+      @media (max-width: $md4+px) {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 100px 30px 30px 30px;
+        transition: left 0.3s ease 0s;
+        overflow: auto;
+        &::before {
+          content: "";
+          position: fixed;
+          width: 100%;
+          top: 0;
+          left: 0;
+          height: 70px;
+          background-color: $mainColor;
+          z-index: 2;
+        }
+        &._active{
+          left: 0;
+        }
+      }
+		}
+		// .menu__list
+		&__list {
+      display: flex;
+      justify-content: space-between;
+      margin-right: -15px;
+      @media (max-width: $md4+px) {
+        flex-direction: column;
+        margin: 0px 0px 0px 0px;
+      }
+		}
+		// .menu__item
+		&__item {
+		}
+		// .menu__link
+		&__link {
+      position: relative;
+      padding: 15px 15px;
+      font-weight: 600;
+      @include adaptiv-value("font-size", 16, 8, 0);
+      line-height: 20 / 16 * 100%;
+      white-space: nowrap;
+      &::after {
+        content: "";
+        display: block;
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: #fff;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+      @media (any-hover: hover) {
+        &:hover::after {
+          width: 100%;
+          left: 0;
+        }
+      }
+      
+		}
+}
+
+.icon-menu {
+	display: none;
+	@media (max-width: $md4+px) {
+    display: block;
+		position: relative;
+		flex: 0 0 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span {
+			transition: all 0.3s ease 0s;
+			top: calc(50% - 1px);
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: $additionalColor;
+			&:first-child {
+				top: 0px;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 0px;
+			}
+		}
+		&._active {
+			span {
+				transform: scale(0);
+				&:first-child {
+					transform: rotate(-45deg);
+					top: calc(50% - 1px);
+				}
+				&:last-child {
+					transform: rotate(45deg);
+					bottom: calc(50% - 1px);
+				}
+			}
+		}
+	}
+}
